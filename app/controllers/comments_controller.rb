@@ -30,10 +30,10 @@ class CommentsController < ApplicationController
   def create
     @blog = Blog.find(params[:blog_id])
     @comment = Comment.new(comment_params)
-    
+
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to blog_comments_url, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @blog, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @blog_comment }
       else
         format.html { render :new }
@@ -45,9 +45,10 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
+    @blog = Blog.find(params[:blog_id])
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to blog_comments_url, notice: 'Comment was successfully updated.' }
+        format.html { redirect_to @blog, notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @blog_comment }
       else
         format.html { render :edit }

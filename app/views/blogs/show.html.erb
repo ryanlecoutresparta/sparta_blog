@@ -22,3 +22,21 @@
 
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
 <%= link_to 'Back', blogs_path %>
+
+<br><br>
+<h4>Comments Section:</h4>
+
+
+<ul class="list-group">
+<% @blog.comments.each do |comment| %>
+  <li class="list-group-item">
+    <%= link_to edit_blog_comment_path(@blog, comment) do %>
+      <%= comment.body %><br>
+    <% end %>
+  </li>
+<% end %>
+<br>
+</ul>
+
+
+<%= link_to 'Add A New Comment', new_blog_comment_path(@blog) %>
