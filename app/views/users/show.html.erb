@@ -34,6 +34,10 @@
       '<%= comment.body %>'
     </h5>
     <% end %>
+    - Posted On:
+    <%= link_to blog_path(comment.blog.id) do %>
+      <%= comment.blog.title %>
+    <% end %>
   <% end %>
 </p>
 
