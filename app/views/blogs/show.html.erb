@@ -2,7 +2,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @blog.user_id %>
+  <%= @blog.user.first_name %>
 </p>
 
 <p>
@@ -31,8 +31,11 @@
 <% @blog.comments.each do |comment| %>
   <li class="list-group-item">
     <%= link_to edit_blog_comment_path(@blog, comment) do %>
-      <%= comment.body %><br>
+      <%= comment.body %>
     <% end %>
+    <br>
+    Posted By: <%= comment.user.first_name %>
+    <br>
   </li>
 <% end %>
 <br>

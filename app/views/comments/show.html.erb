@@ -1,17 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+<h2>Comment:</h2>
+
 <p>
   <strong>User:</strong>
-  <%= @comment.user_id %>
+  <%= @comment.user.first_name %>
 </p>
 
 <p>
   <strong>Blog:</strong>
-  <%= @comment.blog_id %>
+  <%= @blog.title %>
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <strong>Text:</strong>
   <%= @comment.body %>
 </p>
 

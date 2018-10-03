@@ -26,5 +26,16 @@
 <% end %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<p>
+  Comment List:
+  <% @user.comments.each do |comment| %>
+    <%= link_to edit_blog_comment_path(comment.blog_id, comment) do %>
+    <h5>
+      '<%= comment.body %>'
+    </h5>
+    <% end %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %>
 <%= link_to 'Back', users_path %>
