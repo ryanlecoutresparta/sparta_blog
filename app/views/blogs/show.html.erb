@@ -34,7 +34,10 @@
       <%= comment.body %>
     <% end %>
     <br>
-    Posted By: <%= comment.user.first_name %>
+    Posted By:
+    <%= link_to user_path(comment.user.id) do %>
+      <% comment.user.first_name %>
+    <% end %>
     <br>
   </li>
 <% end %>

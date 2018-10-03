@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  Blog List:
+  <p class="mini-headers">Blog List:</p>
   <% @user.blogs.each do |blog| %>
   <%= link_to blog_path(blog) do  %>
   <h5>
@@ -27,7 +27,7 @@
 </p>
 
 <p>
-  Comment List:
+  <p class="mini-headers">Comment List:</p>
   <% @user.comments.each do |comment| %>
     <%= link_to edit_blog_comment_path(comment.blog_id, comment) do %>
     <h5>
@@ -41,5 +41,5 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
+<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
