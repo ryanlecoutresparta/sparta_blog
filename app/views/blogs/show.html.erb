@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @blog.user.first_name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @blog.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @blog.body %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @blog.image %>
+</p>
+
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>
+
+<br><br>
+<h4>Comments Section:</h4>
+
+
+<ul class="list-group">
+<% @blog.comments.each do |comment| %>
+  <li class="list-group-item">
+    <%= link_to edit_blog_comment_path(@blog, comment) do %>
+      <%= comment.body %>
+    <% end %>
+    <br>
+    Posted By:
+    <%= link_to user_path(comment.user.id) do %>
+      <% comment.user.first_name %>
+    <% end %>
+    <br>
+  </li>
+<% end %>
+<br>
+</ul>
+
+
+<%= link_to 'Add A New Comment', new_blog_comment_path(@blog) %>

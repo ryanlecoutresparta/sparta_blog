@@ -1,0 +1,25 @@
+body {
+  text-align: center;
+  table {
+    margin: auto;
+    th, td {
+      padding: 10px 15px;
+    }
+  }
+}
+
+.nav-item {
+  border-left: 3px cyan solid;
+  padding: 0px 30px;
+}
+
+.navbar-brand {
+  margin: 0px 66px 0px 50px;
+  color: hotpink;
+}
+
+.list-group-item {
+  background-color: lightblue;
+  margin: 5px;
+  border-radius: 0.25rem;
+}

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @user.dob %>
+</p>
+
+<p>
+  <p class="mini-headers">Blog List:</p>
+  <% @user.blogs.each do |blog| %>
+  <%= link_to blog_path(blog) do  %>
+  <h5>
+    <%= blog.title %>
+  </h5>
+  <% end %>
+<% end %>
+</p>
+
+<p>
+  <p class="mini-headers">Comment List:</p>
+  <% @user.comments.each do |comment| %>
+    <%= link_to edit_blog_comment_path(comment.blog_id, comment) do %>
+    <h5>
+      '<%= comment.body %>'
+    </h5>
+    <% end %>
+    - Posted On:
+    <%= link_to blog_path(comment.blog.id) do %>
+      <%= comment.blog.title %>
+    <% end %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
